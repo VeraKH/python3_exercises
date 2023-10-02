@@ -1,386 +1,104 @@
-space = '\n'
+my_motorbike = {
+    'brand': 'Ducati',
+    'price': 25000,
+    'engine_vol': 1.2
+}
+print('1. How to create dict: ', my_motorbike)
 
-#1  Как создать словарь
-print('1. Как создать словарь', space)
-
-shopping_list = {
-    'молоко': 'milk', # Первый элемент словаря (в каждом элементе две части!)
-    'сахар': 'sugar',  # Второй элемент словаря
-    'мука': 'flour',  # Третий элемент
-    'яйца': 'eggs',  # Четвёртый элемент
-    'разрыхлитель': 'leaven',  # Пятый элемент
-    'ваниль': 'vanilla'
-} 
-
-database = {
-    'host': '192.168.0.10',
-    'port': 5432,
-    'user': 'Shrek',
-    'password': 'My$wamp235'
-} 
-
-dump = {
-    1: 'единица',               # Ключ - число, значение - строка.
-    'земляника': 'ягода',       # И ключ, и значение - строки.
-    'помидор': 'ягода',         # Значение 'ягода' - не уникально. Так можно.
-    False: 0,                   # Ключ - булево значение, значение - число.
-    'лук': ['овощ', 'оружие'],  # Ключ - строка, значение - список.
-                                # Ключ - строка, а значение - словарь. Так тоже можно!
-    'англо-русский словарь': {'молоко': 'milk', 
-                              'сахар': 'sugar', 
-                              'мука': 'flour'
-                               }    
+# nested dictionary
+my_motorbike_2 = {
+    'price_info': {
+        'is_available': True,
+        'price': 25000,
+    },
+    'engine_vol': 1.2,
+    'brand': 'Ducati'
 }
 
-print(dump,space)
-
-
-#2 Вызвать значение ключа
-print('2. Вызвать значение ключа', space)
-neighbours =  {
-    11 : 'Александр',
-    21 : 'Василий',
-    26 : 'Антон',
-    9 : 'Евгений'
+my_motorbike_3 = {
+    'price': 25000,
+    'engine_vol': 1.2,
+    'brand': 'Ducati',
+    'color': 'red'
 }
 
-print(neighbours[26],space)
+print('2. COMPARE dictionaries: ', my_motorbike == my_motorbike_2)
 
-#3 Изменить значение по ключу
-print('3. Изменить значение по ключу', space)
+print('3. COMPARE dictionaries: ', my_motorbike == my_motorbike_3)
 
-neighbours =  {
-    11 : 'Александр',
-    21 : 'Василий',
-    26 : 'Антон',
-    9 : 'Евгений'
-}
-new = neighbours[21]='Лиза'
+print('4. GET VALUE of the key: ', my_motorbike['brand'])
 
-print('Теперь в квартире 21 живёт', new,space)
+print('5. GET ATTRIBUTES of dict: ', dir(my_motorbike))
 
+my_motorbike['brand'] = 'Honda'
+print('6. CHANGE VALUE for the key: ', my_motorbike['brand'])
 
-#4 Добавление элементов в словарь
-print('4. Добавление элементов в словарь', space)
-shopping_list = {
-    'молоко': 'milk',
-	'сахар': 'sugar',
-    'мука': 'flour',
-    'яйца': 'eggs',
-	'разрыхлитель': 'leaven',
-	'ваниль': 'vanilla'
-}
+my_motorbike['is_new'] = True
+print('7. ADD NEW KEY-VALUE: ', my_motorbike)
 
-# Создаём несколько новых элементов словаря с одинаковым ключом
-shopping_list['лук'] = 'onion'  # Будет создан элемент с ключом 'лук'.
-shopping_list['лук'] = 'bow'  # Значение под ключом 'лук' будет заменено.
+del my_motorbike['engine_vol']
+print('8. DELETE A KEY-VALUE: ', my_motorbike)
 
-print(shopping_list,space)
+year = 2020
+brand = 'Ducati'
+color = 'red'
+price = 2500
+
+my_motorbike[year] = 2020
+print('9. GET VALUE OF THE KEY USING a vars: ', my_motorbike)
+
+print('10. GET VALUE OF THE KEY in NESTED dict: ', my_motorbike_2['price_info']['price'])
 
 
-#5 Метод update
-print('5. Метод update', space)
+def motobike_speed():
+    speed = 20 + 20
+    return speed
 
-shopping_list = {
-    'молоко': 'milk',
-	'сахар': 'sugar',
-    'мука': 'flour',
-    'яйца': 'eggs',
-	'разрыхлитель': 'leaven',
-	'ваниль': 'vanilla'
+
+my_motorbike_3 = {
+    'price': price,
+    'brand': brand,
+    'color': color,
+    'speed': motobike_speed()
 }
 
-additional_products = {'клубника': 'strawberries', 'малина': 'raspberries'}
-shopping_list.update(additional_products)
-print(shopping_list)
-print(additional_products)
-
-
-#6 Добавь в словарь neighbours новый элемент по ключу. Пусть нового жильца зовут Даниил, а его квартира — 47. 
-# После этого напечатай словарь neighbours.
-print('6. Добавление элемента по ключу', space)
-
-neighbours =  {
-    11 : 'Александр',
-    21 : 'Лиза',
-    26 : 'Антон',
-    9 : 'Евгений',
-    5 : 'Катя',
-    33 : 'Сергей',
-    2 : 'Толик',
-    7 : 'Гена'
-}
-neighbours['47'] = 'Данил'
-print(neighbours, space)
-
-#7 Добавление по методу update
-print('7. Добавление по методу update', space)
-
-neighbours =  {
-    11 : 'Александр',
-    21 : 'Лиза',
-    26 : 'Антон',
-    9 : 'Евгений',
-    5 : 'Катя',
-    33 : 'Сергей',
-    2 : 'Толик',
-    7 : 'Гена'
-}
-
-new_neighbours =  {
-    19 : 'Арсений',
-    38 : 'Дима',
-    3 : 'Никита'
-}
-
-neighbours.update(new_neighbours)
-print(neighbours, space)
-
-#8 Метод get и сообщение, если его нет
-print('8. Метод get - получение по ключу, если не найдет, то выдаст предупреждение', space)
-
-backpack = {
-    'Большое отделение': 'Ноутбук',
-    'Боковое отделение': 'Ключи',
-    'Укреплённое отделение': 'Очки',
-    'Малое отделение': 'Зарядное устройство'
-}
-s = backpack.get('Большое отделение')
-print(backpack.get('Среднее отделение', 'Такого отделения нет'))
-print(s,space)
-
-#9 Потренируйся находить значения методом get(): выведи на экран жильцов 11-й и 9-й квартир.
-
-neighbours = {
-    11: 'Александр',
-    21: 'Василий',
-    26: 'Антон',
-    9: 'Евгений'
-}
-print(neighbours.get(11))
-print(neighbours.get(9))
-print(neighbours.get(25, 'Такой квартиры нет'),space)
-
-#10 Получить все ключи, значения 
-
-shopping_list = {
-    'молоко': 'milk',
-	'сахар': 'sugar',
-    'мука': 'flour',
-    'яйца': 'eggs',
-	'разрыхлитель': 'leaven',
-	'ваниль': 'vanilla'
-}
-
-print(shopping_list.keys())
-print(shopping_list.values(),space)
-
-#10 Чтобы сделать из такой коллекции список, понадобится функция list():
-print('10. Из коллекции создаем список', space)
-
-shopping_list = {
-    'молоко': 'milk',
-	'сахар': 'sugar',
-    'мука': 'flour',
-    'яйца': 'eggs',
-	'разрыхлитель': 'leaven',
-	'ваниль': 'vanilla'
-}
-
-new_values = list(shopping_list.values())
-new_keys = list(shopping_list.keys())
-new = list(shopping_list)
-
-print(new_values,new_keys, new, space)
+print('11. Vars and defs as values for the keys: ', my_motorbike_3)
 
-#11 Задание на keys & values - Вывести ключ-значение в другом виде
+print('12. LEN of dicts - how many pairs key-value ', len(my_motorbike_3))
 
-print('11. Задание на keys & values - Вывести ключ-значение в другом виде', space)
+#print('13. GET value for not existed key: ', my_motorbike_3['model'])
 
-neighbours =  {
-    11 : 'Александр',
-    21 : 'Лиза',
-    26 : 'Антон',
-    9 : 'Евгений',
-    5 : 'Катя',
-    33 : 'Сергей'
-}
+print('14. GET value without errors if key is not existed: ', my_motorbike_3.get('model'))
 
-new_keys = list(neighbours.keys())
-new_values = list(neighbours.values())
-for k in new_keys:
-    print(f'{k} - {neighbours[k]}')
-print(space)
+print('15. GET value and set error if key is not existed: ', my_motorbike_3.get('model', 'Not excisted'))
 
-#12 Перебрать и ключи, и значения в цикле
-print('12. Перебрать и ключи, и значения в цикле', space)
+my_dict = {}
+print(my_dict.__doc__)
 
-
-backpack = {
-    'Большое отделение': 'Ноутбук',
-    'Боковое отделение': 'Ключи',
-    'Укреплённое отделение': 'Очки',
-    'Малое отделение': 'Зарядное устройство'
-}
-
-for key, value in backpack.items():
-    print(f'В {key} лежит {value}')
-print(space)
-
-#13 Перебрать ключи ИЛИ значения в цикле. Извлечём и напечатаем только значения (values) каждого элемента
-print('13. Перебрать ключи или значения в цикле. Извлечём и напечатаем только значения (values) каждого элемента', space)
-
-
-for value in backpack.values():
-    print('Я взял с собой ' + value)
-
-for item in backpack.keys():
-    print('В моём рюкзаке есть ' +  item)
-
-for item in backpack:
-    print('В моём рюкзаке есть ' +  item)
-print(space)
+print('16. Output dict in the view of tuple: ', my_motorbike_3.items(), 'type: ', type(my_motorbike_3))
 
-#14 Из двух списков делаем словарь
-print('14. Из двух списков делаем словарь', space)
-
-neighbours_names = ['Вася', 'Ира', 'Антон', 'Арина', 'Женя']
-neighbours_flats = [4, 9, 12, 16, 19]
-neighbours= {}
-for i in range(0, len(neighbours_names)):    
-        neighbours[neighbours_flats[i]] = neighbours_names[i]
-for key, value in neighbours.items():
-    print(f'В квартире {key} живет {value}')
-print(space)
-
-print('Метод питона из списков в словарь')
-dictionary = {k: v for k, v in zip(neighbours_flats, neighbours_names)}
-print(dictionary,space)
-
-print('Метод как в практике!!!')
-for i in range(0, len(neighbours_flats)):
-    neighbours[neighbours_flats[i]] = neighbours_names[i]
-    print(neighbours.get(neighbours_flats[i]) + ' живёт в квартире ' + str(neighbours_flats[i]))
-print(space)
-
-
-#print('Мой метод ПОЧЕМУ ТАК НЕЛЬЗЯ?')
-#for flat in neighbours_flats:
-#     for name in neighbours_names:
-#          neighbours[neighbours_flats[flat]] = neighbours_names[name]
-#print(neighbours,space)         
-
-#15 Вывод списков-значений из словарей. Напечатай обо всех жильцах такое сообщение: <имена> живут в квартире <номер_квартиры>.
-print('15. Вывод списков-значений в словарях', space)
-
-neighbours =  {
-    11 : ['Александр', 'Света'],
-    21 : ['Лиза', 'Артём'],
-    26 : ['Антон', 'Надя'],
-    9 :  ['Евгений', 'Маша'],
-    5 :  ['Катя', 'Костя'],
-    33 : ['Сергей', 'Инга']
-}
-
-for key, value in neighbours.items():
-    print(f'В квартире {key} живут {value[0]} и {value[1]}')
-print(space)
-
-
-#16 Тренировка вывода из словарей 
-print('16. Тренировка вывода из словарей ', space)
-
-# Выведи на экран, сколько людей живёт в квартире 11 (число)
-print(len(neighbours[11]), space)
-
-# Выведи на экран построчно всех жильцов квартиры 21
-for key, value in neighbours.items():
-    for i in value:
-        if key == 21:
-            print(i)
-print(space)
-
-# Выведи на экран имена всех вторых жильцов
-for key, value in neighbours.items():
-    print(value[1])
-print(space)
-
-
-#Проверка на наличие ключа в словаре - in 
-print ('Проверка на наличие ключа в словаре - in')
-
-shopping_list = {
-    'молоко': 'milk',
-	'сахар': 'sugar',
-    'мука': 'flour',
-    'яйца': 'eggs',
-	'разрыхлитель': 'leaven',
-	'ваниль': 'vanilla'
-}
-# Есть ли элемент 'разрыхлитель' в словаре shopping_list?
-if 'разрыхлитель' in shopping_list:
-    print('В словаре: нашлось!') 
-else:
-    print('В словаре: не нашлось :(')
-
-#Проверка на наличие значения в словаре - values() и keys(). Есть ли элемент 'leaven' среди ключей ИЛИ значений словаря shopping_list?
-
-if 'leaven' in shopping_list.keys() or 'leaven' in shopping_list.values():
-    print('В словаре: нашлось!') 
-else:
-    print('В словаре: не нашлось :(') 
-
-# Проверка на отсутствие в коллекции
-
-if 'клубника' not in shopping_list:
-    print('Не хватает клубники для украшения панкейков!',space) 
-
-#ЗАДАЧА 1: отфильтровать фильмы по оценке. Оставь только те, у которых она больше или равна 8.5. 
-# Отфильтрованные пары запиши в новый словарь filtered_movies и выведи его на экран.
-print('Задача 1',space) 
-
-
-movies = {'Игры разума': 8.3, 
-          'Зеленая миля': 9.1, 
-          'Леон': 8.5, 
-          'Эффект бабочки': 8.2, 
-          'Матрица': 8.6, 
-          'Криминальное чтиво': 8.7
-          }
-filtered_movies= {}
-
-for movie, rating in movies.items():
-    if rating >= 8.5:
-        filtered_movies[movie] = rating
-
-print(filtered_movies)
-
-#ЗАДАЧА 2:  наполнить словарь rainbow_dict парами ключ-значение. 
-# Ключ — слово из списка mnemo, а значение — соответствующий слову цвет из списка colors.
-print('Задача 2',space) 
-
-mnemo = ['каждый', 'охотник', 'желает', 'знать', 'где', 'сидит', 'фазан']
-colors = ['оранжевый', 'голубой', 'фиолетовый', 'красный', 'желтый', 'синий', 'зеленый']
-rainbow_dict={}
-
-rainbow_dict = {}
-for i in mnemo:
-    for n in colors:
-        if i[0] == n[0]:
-          rainbow_dict[i]= n
-print(rainbow_dict)
-
-#ЗАДАЧА 3: Создай словарь, где ключ — номер квартиры, а значение — списки с именами жильцов. 
-# Каждая пара жильцов — это отдельный список.
-print('Задача 3',space) 
-
-new_neighbours = [['Вася', 'Катя'], ['Юра', 'Марина'], ['Лёша', 'Ира'], ['Петя', 'Надя'], ['Ваня', 'Света']]
-flats=[1,2,3,4,5]
-house_dict = {}
-
-for i in range(0, len(new_neighbours)):
-    house_dict[flats[i]] = new_neighbours[i]
-print(house_dict,space)
-
-house_dict = {flat: neighbours for flat, neighbours in zip(flats, new_neighbours)}
-print(house_dict,space)
+print('17. convert to list: ', 'type: ', type(list(my_motorbike_3.keys())))
+
+print('17. convert list to dict:')
+
+my_list = [0, True, 'abc']
+my_string = 'Hello world'
+#list_to_dic = dict(my_string) #ERRORS
+#list_to_dic = dict(my_list) #ERRORS
+my_list_2 = [('1', 0), ['2', True], ['3', 'abc']]
+my_list_to_dic = dict(my_list_2)
+print('17.1 CONVERT LIST or TUPLE TO DICT', my_list_to_dic)
+
+
+print('18. Pop last key-value - NOT GOOD FOR USAGE: ', my_motorbike_3.popitem())
+print(my_motorbike_3)
+
+my_motorbike_4 = my_motorbike_3.copy()
+my_motorbike_4['size'] = 'large'
+print(my_motorbike_3, my_motorbike_4)
+print('19. COPY dictionary', id(my_motorbike_3), id(my_motorbike_4))
+
+print('19. Pop last key-value - NOT GOOD FOR USAGE: ', my_motorbike_3.popitem())
+
+
+
