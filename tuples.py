@@ -61,4 +61,10 @@ print('8. CONVERT to LIST and BACK: ', num_tuple)
 print('9. CONVERT DICT to TUPLE: ', tuple(my_user))
 
 
+print('10. Unpacking')
 
+my_fruits_3 = ('banana', 'apple', 'lime')
+
+my_apple, my_banana, my_pear = my_fruits_3
+
+print(my_apple, my_banana, my_pear)

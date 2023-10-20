@@ -1,6 +1,10 @@
 import datetime
 
 # FUNCTIONS is an object.
+# One FUNCTIONS  - one aim.
+# FUNCTIONS must be pure. Do not change out variables in there.
+# Names of FUNCTIONS should be understandable.
+
 
 a = 4
 b = 2
@@ -171,6 +175,7 @@ print('15. Default values')
 
 
 def mult_by_factor(value, multiplier=1):
+    """Multiplies value and multiplier """
     return value * multiplier
 
 
@@ -179,10 +184,12 @@ print(mult_by_factor(2))
 
 
 def get_weekday():
+    """Return weekday of today - Capitals """
     return datetime.date.today().strftime('%A')
 
 
 def create_new_post(post, weekday=get_weekday()):
+    """Create new post """
     post_copy = post.copy()
     post_copy['created_weekday'] = weekday
     return post_copy
@@ -193,25 +200,97 @@ initial_post = {
     'author': 'Vera'
 }
 
-
 post = create_new_post(initial_post)
 print(post)
 print(initial_post)
 
 print('16. Callback function')
 
-
-def other_fn():
-    pass
-
-
-def fn_with_callback(callback_fn):
-    callback_fn()
-
-
-fn_with_callback(other_fn())
-
+# def other_fn():
+#     pass
+#
+#
+# def fn_with_callback(callback_fn):
+#     callback_fn()
+#
+#
+# fn_with_callback(other_fn())
 
 
+print('17. Global and local areas for variables')
+
+a_one = 10
+
+
+def local_vars_one():
+    a_one = True
+    b_one = 15
+    print(a)
+    print(b)
+
+
+my_fn()
+
+print(a_one)
+# print(b_one)
+
+a_two = 5
+
+
+def my_fn():
+    def inner_fn():
+        print(a_two)
+
+    inner_fn()
+
+
+my_fn()
+
+print(a_two)
+
+print('18. Global vars')
+
+
+def global_var():
+    global a_glob
+    a_glob = 10
+
+
+global_var()
+print(a_glob)
+
+a_glob_2 = 30
+
+
+def global_var_2():
+    global a_glob_2
+    a_glob_2 = 40
+
+
+global_var_2()
+print(a_glob_2)
+
+
+def inner_area_vars():
+    inner_a = 10
+    inner_b  = 20
+    inner_c = 30
+    print(dir())
+
+
+print(dir())
+inner_area_vars()
+
+
+print('19. Lambda function')
+
+#malt = lambda z, y: z * y #NOT recommend
+#print(malt(10,5))
+
+def greeting(greet):
+    return lambda name: f"{greet}, {name}!"
+
+morning = greeting('Good morning') #Замыкание, Clousers
+print(morning('Vera'))
 
 

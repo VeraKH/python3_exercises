@@ -1,6 +1,5 @@
-
 print('ANY types of elements in list')
-user_inputs = [True, 'hi', 10,5]
+user_inputs = [True, 'hi', 10, 5]
 print(1, user_inputs)
 
 print('ORDER of elements matters')
@@ -35,10 +34,10 @@ users = [
 ]
 
 print(1, users, len(users))
-print(users[1]['user_id']) #321
+print(users[1]['user_id'])  # 321
 
 print('METHODS for lists')
-#POP and APPEND change the list, not create new one
+# POP and APPEND change the list, not create new one
 
 users = []
 
@@ -68,20 +67,20 @@ greeting_letters = list(greeting)
 print(1, greeting_letters)
 
 user = {
-        'user_id': 123,
-        'user_name': 'Vera'
-    }
+    'user_id': 123,
+    'user_name': 'Vera'
+}
 
 user_dic_to_list = list(user)
 print(2, 'Keys only goes to list: ', user_dic_to_list)
 
 print('ARIFMETICS in LISTS')
 
-rating = [2.5, 5.0, 4.3, 3.7, 4,5]
+rating = [2.5, 5.0, 4.3, 3.7, 4, 5]
 print('MIN: ', min(rating))
 print('MAX: ', max(rating))
 print('SUM: ', sum(rating))
-print('AVARAGE: ', sum(rating)/len(rating))
+print('AVARAGE: ', sum(rating) / len(rating))
 
 print('SUM of lists')
 
@@ -93,9 +92,9 @@ all_fruits = my_fruits_1 + my_fruits_2
 print(2, all_fruits)
 
 print('CUT THE LISTS')
-first_two_ratings = rating[:2] #Not include 2
+first_two_ratings = rating[:2]  # Not include 2
 print(1, first_two_ratings)
-first_two_ratings = rating[1:-1] #Not include -1
+first_two_ratings = rating[1:-1]  # Not include -1
 print(2, first_two_ratings)
 first_two_ratings = rating[-2]
 print(3, first_two_ratings)
@@ -125,7 +124,7 @@ print('two different lists: ', id(copied_cars) == id(my_cars), copied_cars, my_c
 print('5. COUNT')
 my_nums = [10, 50, 0, 5, 5, 100]
 print(my_nums.count(5))
-my_nums.insert(2, -10) #BEFORE this index
+my_nums.insert(2, -10)  # BEFORE this index
 print(my_nums)
 
 print('6. CLEAR')
@@ -136,3 +135,31 @@ print('7. EXTEND')
 my_nums = [10, 50, 0, 5, 5, 100]
 my_nums.extend('abc')
 print(my_nums)
+
+print('8. Unpacking')
+
+my_fruits_3 = ['apple', 'banana', 'pear']
+
+my_apple, my_banana, my_pear = my_fruits_3
+
+my_apple_1, *remaining_fruits = my_fruits_3
+
+print(my_apple, my_banana, my_pear)
+print(my_apple_1)  # string
+print(remaining_fruits)  # list
+
+print('4. Unpacking to function')
+
+#user_data = ['Vera', '']
+user_data = ['Vera', 35]
+
+
+def user_info(name, age):
+    if not age:
+        return f"{name} has no age"
+    return f"{name} is {age}"
+
+
+print(user_info(*user_data))
+#print(user_info(name=user_data[0], age=user_data[1]))
+#print(user_info(user_data[0], user_data[1]))

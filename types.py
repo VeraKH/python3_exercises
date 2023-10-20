@@ -14,24 +14,6 @@ print(id(my_number)) #4384055848 every time there gonna be new ID. New run = new
 other_number = my_number
 print(id(other_number)) #4384055848
 
-print('\nSTRINGS TOPIC') #STRINGS
-
-long_str = 'This is a short string'
-print(type(long_str))
-print(id(long_str))
-
-long_str_other = '''This is 
-                    a 
-                    short string'''
-print(long_str_other)
-print(len(long_str))
-print(long_str .replace('short', 'long'))
-print(long_str.count(' '))
-print(long_str.count( 's'))
-print(long_str.count('is'))
-print(long_str[-1])
-print(long_str[2:7])
-
 
 print('\nINTEGERS TOPIC')
 #INT
